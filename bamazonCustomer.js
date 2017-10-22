@@ -16,22 +16,44 @@ var connection = mysql.createConnection({
 // });
 
 
+
+
+function inventoryDisplay() {
+  query = "SELECT * FROM products";
+  connection.query("SELECT * FROM products", function(err, res){
+    if(err) throw err;
+
+    //Display Table
+
+    var tabOutput = "";
+    for(var i = 0; i < res.length; i++) {
+
+      tabOutput = "";
+      tabOutput += "Id" + res[i].item_id;
+      tabOutput += "Product Name:" + res[i].product_name;
+      tabOutput += "Department Name" + res[i].department_name;
+      tabOutput += "Price" + res[i].price;
+
+      console.log(tabOutput);
+    }
+
+    userPrompt();
+
+  })
+}
+
 function userPrompt() {
 
   inquirer.prompt([
     {
       type: 'input',
       name: 'item_id',
-      message: 'Please enter the item_id which you would like to purchase.',
-      validate: validateInput,
-      filter: Number
+      message: 'Please enter the item_id which you would like to purchase.'
     },
     {
       type: 'input',
       name: 'quantity',
-      message: 'How many do you want?',
-      validate: validateInput,
-      filter: Number
+      message: 'How many do you want?'
     }
   ]).then(function(response) {
       // console.log(response.item_id);
@@ -44,23 +66,28 @@ function userPrompt() {
         if(err) throw err;
 
         if(response.length === 0) {
-          console.log(Invalid item)
+          console.log("Invalid item")
         }else {
           if(quantity <= response[0].stock_quantity) {
-            var queryUpdate = "UPDATE products SET stock_quantity =" + (response[0].stock_quantity - quantity) + "WHERE item_id" + item; 
+            var queryUpdate = "UPDATE products SET stock_quantity =" + (response[0].stock_quantity - quantity) + "WHERE item_id" + item;
+            connection.query(queryUpdate, function(err, res) {
+              if(err) throw err;
+            connection.end();
+            })
+          }else {
+            inventoryDisplay();
           }
         }
-
-      })
-      
-    });
+      })  
+    })
 }
 
-// function inventoryDiplay() {
-//   connection.query("SELECT * FROM products", function(err.res){
-//     if(err) throw err;
-//   })
-// }
+function runBamazon() {
+
+  inventoryDisplay();
+}
+
+runBamazon();
 
 
 
