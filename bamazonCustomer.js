@@ -71,10 +71,12 @@ function userPrompt() {
 
           if(quantity <= res[0].stock_quantity) {
             var queryUpdate = "UPDATE products SET stock_quantity = " + (res[0].stock_quantity - quantity) + " WHERE item_id = " + item;
+            var totalPrice = res[0].price * quantity;
+            console.log("Your Grand Total Will Be: " + totalPrice);
             // console.log(queryUpdate);
             connection.query(queryUpdate, function(err, res) {
               if(err) throw err;
-              connection.end();
+              inventTable();
             })
           }else 
             inventTable();

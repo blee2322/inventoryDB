@@ -19,32 +19,32 @@ CREATE TABLE products (
 
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("PS4", "Electronics", 499.99, 10);
+VALUES ("PS4", "Electronics", 499.99, 100);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("WII", "Electronics", 299.99, 13);
+VALUES ("WII", "Electronics", 299.99, 140);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("XBOX", "Electronics" , 499.99, 4);
+VALUES ("XBOX", "Electronics" , 499.99, 300);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("MACBOOK PRO", "Electronics", 2399.99, 6);
+VALUES ("MACBOOK PRO", "Electronics", 2399.99, 500);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("APPLE WATCH", "Electronics", 599.99, 15);
+VALUES ("APPLE WATCH", "Electronics", 599.99, 700);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("IPAD", "Electronics" , 799.99, 7);
+VALUES ("IPAD", "Electronics" , 799.99, 900);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("NINTENDO DS", "Electronics", 199.99, 12);
+VALUES ("NINTENDO DS", "Electronics", 199.99, 400);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("SAMSUNG VIVE", "Electronics", 899.99, 24);
+VALUES ("SAMSUNG VIVE", "Electronics", 899.99, 1000);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("50 SAMSUNG TV", "Electronics", 1599.99, 10);
+VALUES ("50 SAMSUNG TV", "Electronics", 1599.99, 700);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("IPOD", "Electronics" , 399.99, 23);
+VALUES ("IPOD", "Electronics" , 399.99, 800);
 
